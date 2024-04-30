@@ -1,7 +1,7 @@
 name: pincode_input_fields
 description: "Pincode input fields flutter package."
 version: 1.0.0
-homepage: 
+homepage: https://github.com/PationPrime/pincode_input_fields
 
 environment:
   sdk: '>=3.0.3 <4.0.0'

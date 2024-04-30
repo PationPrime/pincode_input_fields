@@ -9,10 +9,12 @@ class PincodeInputFieldsApp extends StatelessWidget {
   const PincodeInputFieldsApp({super.key});
 
   @override
-  Widget build(BuildContext context) => const MaterialApp(
+  Widget build(BuildContext context) => MaterialApp(
         home: Scaffold(
           body: Center(
-            child: PincodeInputFields(),
+            child: PincodeInputFields(
+              controller: PincodeInputFieldsController(),
+            ),
           ),
         ),
       );

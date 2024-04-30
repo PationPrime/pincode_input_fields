@@ -107,14 +107,14 @@ class _PincodeInputFieldsState extends State<PincodeInputFields> {
   }
 
   void _mainControllerListener() => _mainController!.addListener(
-        () => setState(
-          () {},
-        ),
+        () => setState(() {}),
       );
 
   void _focusListener() => setState(() {});
 
   void _addFocusListeners() {
+    _removeFocusListeners();
+
     for (final focus in _focusNodes) {
       focus.addListener(_focusListener);
     }
@@ -123,6 +123,12 @@ class _PincodeInputFieldsState extends State<PincodeInputFields> {
   void _removeFocusListeners() {
     for (final focus in _focusNodes) {
       focus.removeListener(_focusListener);
+    }
+  }
+
+  void _disposeFocusNodes() {
+    for (final focus in _focusNodes) {
+      focus.dispose();
     }
   }
 
@@ -221,6 +227,14 @@ class _PincodeInputFieldsState extends State<PincodeInputFields> {
       _insertCode(_mainController!.text);
     }
 
+    if (oldWidget.length != widget.length) {
+      _controllers.clear();
+      _focusNodes.clear();
+      _createControllers();
+      _addFocusListeners();
+      setState(() {});
+    }
+
     super.didUpdateWidget(oldWidget);
   }
 
@@ -228,6 +242,7 @@ class _PincodeInputFieldsState extends State<PincodeInputFields> {
   void dispose() {
     _disposeControllers();
     _removeFocusListeners();
+    _disposeFocusNodes();
     super.dispose();
   }
 

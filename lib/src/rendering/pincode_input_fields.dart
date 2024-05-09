@@ -135,7 +135,6 @@ class _PincodeInputFieldsState extends State<PincodeInputFields> {
   void _disposeControllers() {
     for (int i = 0; i < _controllers.length; i++) {
       _controllers[i].dispose();
-      _focusNodes[i].dispose();
     }
   }
 

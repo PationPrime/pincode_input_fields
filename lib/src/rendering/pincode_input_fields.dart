@@ -277,6 +277,11 @@ class _PincodeInputFieldsState extends State<PincodeInputFields> {
         cursorColor = widget.cursorColor ??
             selectionStyle.cursorColor ??
             theme.colorScheme.primary;
+
+      default:
+        cursorColor = widget.cursorColor ??
+            selectionStyle.cursorColor ??
+            theme.colorScheme.primary;
     }
 
     final defaultTextStyle = TextStyle(
